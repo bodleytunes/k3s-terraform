@@ -25,21 +25,10 @@ module "vpc" {
   internet_subnet = local.cidr_subnets[5]
 }
 
-
-data "aws_ami" "app" {
-    most_recent = true
-    owners = ["canonical"]
-
-    filter {
-        name = "name"
-        values = ["ubuntu/images/hvm-ssd/ubuntu-focal-20.04-amd64-server-20*"]
-    }
-    filter {
-        name = "virtualization-type"
-        values = ["hvm"]
-    }
-    filter {
-        name = "architecture"
-        values = ["x86_64"]
-    }
+module "ec2_master" {
+    source = "./modules/ec2"
+    infra_env = var.infra_env
+    infra_role = "master"
+    instance_size = "t2.medium"
+    instance_ami = data.aws_ami.app.id
 }
