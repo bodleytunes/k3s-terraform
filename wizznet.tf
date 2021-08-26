@@ -3,7 +3,13 @@
 ##
 
  
+terraform {
 
+    backend "local" {
+        path = "~/.terraform.d/backend/k3s/terraform-prod.tfstate"
+    }
+
+}
  
 
  
@@ -27,8 +33,11 @@ module "vpc" {
 
 module "ec2_master" {
     source = "./modules/ec2"
-    infra_env = var.infra_env
+    #infra_env = var.prod_env
+    infra_env = "prod"
+    #prod_env = "prod"
     infra_role = "master"
     instance_size = "t2.medium"
     instance_ami = data.aws_ami.app.id
 }
+

@@ -34,4 +34,5 @@ resource "aws_instance" "master_server" {
         Project = "k3s"
         Environment = var.infra_env
         ManagedBy = "terraform"
+        }
     }

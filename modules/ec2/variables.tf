@@ -1,6 +1,11 @@
-variable prod_env {
+variable infra_env {
   type = string
   description = "production environment"
+}
+
+variable infra_role {
+  type = string
+  description = "production role"
 }
 
 variable instance_size {

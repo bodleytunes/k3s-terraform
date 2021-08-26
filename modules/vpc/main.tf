@@ -14,13 +14,14 @@ module "vpc" {
   single_nat_gateway = true
   one_nat_gateway_per_az = false
  
-  master_subnets = var.master_subnets
-  worker_subnets  = var.worker_subnets
-  internet_subnet = var.internet_subnet
+  public_subnets = var.master_subnets
+  private_subnets  = var.worker_subnets
+  #internet_subnet = var.internet_subnet
  
   tags = {
     Name = "wizznet-${var.infra_env}-vpc"
     Project = "k3s-project"
     Environment = var.infra_env
     ManagedBy = "terraform"
+    }
   }
