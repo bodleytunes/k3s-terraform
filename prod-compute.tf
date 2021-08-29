@@ -5,6 +5,8 @@ resource "aws_instance" "masters" {
   instance_type = var.master_instance_type
   for_each = aws_subnet.master_subnets
   subnet_id = each.value.id
+  vpc_security_group_ids = [aws_security_group.main.id]
+
   root_block_device {
     volume_type = var.master_root_volume_type
     volume_size = var.master_root_volume_size
@@ -27,6 +29,9 @@ resource "aws_instance" "workers" {
   instance_type = var.worker_instance_type
   for_each = aws_subnet.worker_subnets
   subnet_id = each.value.id
+  vpc_security_group_ids = [aws_security_group.main.id]
+
+
   root_block_device {
     volume_type = var.worker_root_volume_type
     volume_size = var.worker_root_volume_size
