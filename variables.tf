@@ -70,7 +70,7 @@ variable "master_subnets" {
     },
   }
 }
-variable worker_subnets{
+variable "worker_subnets" {
   default = {
     3 = {
       id = 0
@@ -127,4 +127,23 @@ variable "worker_root_volume_type" {
 variable "worker_root_volume_size" {
   type = number
   default = 8
+}
+
+variable "k3s_ingress_rules" {
+  default = {
+    "vxlan" = {
+      name = "vxlan"
+      from_port = 4789
+      to_port = 4789
+      protocol = "tcp"
+      cidr_blocks = ["10.100.0.0/16"]
+    },
+    "wireguard" = {
+      name = "wireguard"
+      from_port = 51820
+      to_port = 51820
+      protocol = "udp"
+      cidr_blocks = ["10.100.0.0/16"]
+    }
+  }
 }
