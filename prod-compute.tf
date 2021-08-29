@@ -1,6 +1,7 @@
 resource "aws_instance" "masters" {
   provider = aws
   ami           = var.ami_image
+  key_name = aws_key_pair.k3s_laptop_key.key_name
   instance_type = var.master_instance_type
   for_each = aws_subnet.master_subnets
   subnet_id = each.value.id
