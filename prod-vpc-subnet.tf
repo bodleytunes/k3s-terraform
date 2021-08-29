@@ -21,6 +21,9 @@ resource "aws_subnet" "master_subnets" {
   cidr_block        = each.value.cidr
   availability_zone = lookup(each.value, "az", null)
   vpc_id            = aws_vpc.prod.id
+  tags = {
+    Name = each.value.name
+   }
 }
 
 resource "aws_subnet" "worker_subnets" {
@@ -28,4 +31,7 @@ resource "aws_subnet" "worker_subnets" {
   cidr_block        = each.value.cidr
   availability_zone = lookup(each.value, "az", null)
   vpc_id            = aws_vpc.prod.id
+  tags = {
+    Name = each.value.name
+   }
 }
