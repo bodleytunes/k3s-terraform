@@ -137,13 +137,73 @@ variable "k3s_ingress_rules" {
       to_port = 4789
       protocol = "tcp"
       cidr_blocks = ["10.100.0.0/16"]
+      description = "vxlan"
     },
-    "wireguard" = {
-      name = "wireguard"
-      from_port = 51820
-      to_port = 51820
+    "udp8472" = {
+      name = "udp8472"
+      from_port = 8472
+      to_port = 8472
       protocol = "udp"
       cidr_blocks = ["10.100.0.0/16"]
-    }
+      description = "udp8472"
+    },
+      "tcp8000" = {
+      name = "tcp8000"
+      from_port = 8000
+      to_port = 8000
+      protocol = "tcp"
+      cidr_blocks = ["10.100.0.0/16"]
+      description = "tcp8000"
+    },
+        "tcp9000" = {
+      name = "tcp9000"
+      from_port = 9000
+      to_port = 9000
+      protocol = "tcp"
+      cidr_blocks = ["10.100.0.0/16"]
+      description = "tcp9000"
+    },
+        "etcd" = {
+      name = "etcd"
+      from_port = 2379
+      to_port = 2380
+      protocol = "tcp"
+      cidr_blocks = ["10.100.0.0/16"]
+      description = "etcd"
+    },
+        "tcp6443" = {
+      name = "tcp6443"
+      from_port = 6443
+      to_port = 6443
+      protocol = "tcp"
+      cidr_blocks = ["10.100.0.0/16"]
+      description = "tcp6443"
+
+    },
+        "tcp2381" = {
+      name = "tcp2381"
+      from_port = 2381
+      to_port = 2381
+      protocol = "tcp"
+      cidr_blocks = ["10.100.0.0/16"]
+      description = "tcp 2381"
+
+    },
+    "bgp" = {
+      name = "bgp"
+      from_port = 179
+      to_port = 179
+      protocol = "tcp"
+      cidr_blocks = ["10.100.0.0/16"]
+      description = "BGP"
+    },
+        "ip_in_ip" = {
+      name = "ip_in_ip"
+      from_port = 0
+      to_port = 0
+      protocol = "4"
+      cidr_blocks = ["10.100.0.0/16"]
+      description = "IP in IP"
+    }  
   }
 }
