@@ -4,11 +4,20 @@ variable "infra_env" {
   default = "prod"
 }
 
+variable "project" {
+  type = string
+  description = "project"
+  default = "k3s"
+}
+
+
 variable "prod_env" {
   type = string
   description = "production environment"
   default = "prod"
 }
+
+
 
 variable default_region {
   type = string
@@ -41,17 +50,20 @@ variable azs {
 
 variable "master_subnets" {
   default = {
-    "master0" = {
+    0 = {
+      id = 0
       name = "master0"
       az = "eu-west-3a"
       cidr = "10.100.0.0/24"
     },
-    "master1" = {
+    1 = {
+      id = 1
       name = "master1"
       az = "eu-west-3b"
       cidr = "10.100.1.0/24"
     },
-    "master2" = {
+    2 = {
+      id = 2
       name = "master2"
       az = "eu-west-3c"
       cidr = "10.100.2.0/24"
@@ -60,17 +72,20 @@ variable "master_subnets" {
 }
 variable worker_subnets{
   default = {
-    "worker0" = {
+    3 = {
+      id = 0
       name = "worker0"
       az = "eu-west-3a"
       cidr = "10.100.10.0/24"
     },
-    "worker2" = {
+    4 = {
+      id = 1
       name = "worker2"
       az = "eu-west-3b"
       cidr = "10.100.11.0/24"
     },
-    "worker3" = {
+    5 = {
+      id = 2
       name = "worker3"
       az = "eu-west-3c"
       cidr = "10.100.12.0/24"
