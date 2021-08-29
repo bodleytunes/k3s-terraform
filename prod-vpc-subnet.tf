@@ -1,7 +1,7 @@
  
-locals {
-    cidr_subnets = cidrsubnets("10.100.0.0/16", 8, 8, 8, 8, 8)
-}
+#locals {
+#    cidr_subnets = cidrsubnets("10.100.0.0/16", 8, 8, 8, 8, 8)
+#}
  
 ###
 # Resources

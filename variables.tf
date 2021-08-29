@@ -1,3 +1,8 @@
+variable "laptop_key" {
+  type = string
+  default = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFFJnwBV704MYn2pgQKPbzIuW8PJmy3NZNX1TXfOnAqM super@DESKTOP-U8L96OL"
+}
+
 variable "infra_env" {
   type = string
   description = "production environment"

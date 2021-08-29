@@ -10,14 +10,20 @@ resource "aws_eip" "prod_master_eip" {
 
 }
 
-# create a new map of instances to eips
-#locals {
-#    eip_output = zipmap( values(aws_instance.masters)[*].id, values(aws_eip.prod_master_eip)[*].id ) 
-#}
+resource "aws_eip" "prod_nat_gateway_eip" {
+    depends_on = [aws_internet_gateway.prod]
+}
 
 
-#resource "aws_eip_association" "eip_assoc" {
-#  for_each = local.eip_output
-#  instance_id   = each.key
-#  allocation_id = each.value
-#}
+resource "aws_nat_gateway" "prod_nat_gateway" {
+  allocation_id = aws_eip.prod_nat_gateway_eip.id
+  subnet_id     = aws_subnet.master_subnets.1.id
+
+  tags = {
+    Name = "gw NAT"
+  }
+
+  # To ensure proper ordering, it is recommended to add an explicit dependency
+  # on the Internet Gateway for the VPC.
+  depends_on = [aws_internet_gateway.prod]
+}
