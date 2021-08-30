@@ -98,6 +98,51 @@ variable "worker_subnets" {
   }
 }
 
+variable "master_instances" {
+  default = {
+    master0 = {
+      id = 0
+      name = "master0"
+      az = "eu-west-3a"
+      ip_address = "10.100.0.10"
+    },
+    master1 = {
+      id = 1
+      az = "eu-west-3b"
+      name = "master1"
+      ip_address = "10.100.1.10"
+
+    },
+    master2 = {
+      id = 2
+      az = "eu-west-3c"
+      name = "master2"
+      ip_address = "10.100.2.10"    },
+  }
+}
+
+variable "worker_instances" {
+  default = {
+    worker0 = {
+      id = 0
+      name = "worker0"
+      az = "eu-west-3a"
+      ip_address = "10.100.10.10"
+    },
+    worker1 = {
+      id = 1
+      name = "worker1"
+      az = "eu-west-3b"
+      ip_address = "10.100.11.10"
+
+    },
+    worker2 = {
+      id = 2
+      az = "eu-west-3c"
+      name = "worker2"
+      ip_address = "10.100.12.10"    },
+  }
+}
 
 variable "ami_image" {
   type = string

@@ -23,6 +23,7 @@ resource "aws_subnet" "master_subnets" {
   vpc_id            = aws_vpc.prod.id
   tags = {
     Name = each.value.name
+    Type = "master"
    }
 }
 
@@ -33,5 +34,6 @@ resource "aws_subnet" "worker_subnets" {
   vpc_id            = aws_vpc.prod.id
   tags = {
     Name = each.value.name
+    Type = "worker"
    }
 }
