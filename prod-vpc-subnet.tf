@@ -13,6 +13,8 @@ resource "aws_vpc" "prod" {
   tags = {
     Name = "vpc-prod"
    }
+  enable_dns_support = true
+  enable_dns_hostnames = true
 }
 
 

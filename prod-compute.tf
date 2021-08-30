@@ -24,6 +24,7 @@ resource "aws_instance" "masters" {
   vpc_security_group_ids = [aws_security_group.main.id]
   private_ip = each.value.ip_address
 
+
   root_block_device {
     volume_type = var.master_root_volume_type
     volume_size = var.master_root_volume_size
@@ -50,6 +51,7 @@ resource "aws_instance" "workers" {
   subnet_id = [for subnet in aws_subnet.worker_subnets: subnet.id if subnet.availability_zone == each.value.az][0]
   vpc_security_group_ids = [aws_security_group.main.id]
   private_ip = each.value.ip_address
+
 
 
   root_block_device {

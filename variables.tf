@@ -3,6 +3,11 @@ variable "laptop_key" {
   default = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFFJnwBV704MYn2pgQKPbzIuW8PJmy3NZNX1TXfOnAqM super@DESKTOP-U8L96OL"
 }
 
+variable "wizznet_aws_key" {
+  type = string
+  default = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDd0A7Bs+mWyGvAkolSOVsxw2hm2pefFnpIzDQDROhjfLKGNehgMLBHF/bHWpt1urUlxBh2Y5xM46iTnRlhPQp+zZ3pp1wAitE4GdfYxp2DUqgfzmMQxnNazpaX3wMZr5HXQ7lYTuuAXJT6JR3mOz3BtKK8JqMD77wm2ek+fLzy2VG4/FJ5ipejYtvpgOCHzZGQoXACDobi2N8Rsit1Kl6DWI1/SLqwaEfcbfRB8jimE6PrYrjBTqHPxnDHvzvKrmaG4X+qXYyz7f7r6BNlZN8MFQ5k9hN1mCyldtsz6FfOgpTgiMV+bM+3FCH21LkRQvCcfe6TdF5FRwV54S3WLpNTK5U+p0e3aAGL7WRUHLb3DXOLKNqU0CUe+jbEgROS1nFV/NTRdXg0nYIPptj/yhfmvuH199dXoTgDcxXLTw2RSN4EK7Mn/QnukQ5EqVKzVd/MRArDBZeCC0LKyd6vunV0qvLm9IZKSa22Vi2Y/7zCEkN7R9hVnDHoAmHZGXmEj6k9NVZGr4h07YRU1G7CLnhesxZDUIDLXZPOt9SO8fgXgaZFdV/SWkNuChB/ZFDVCn94Z/adaKU4PKB+a1wrO7vhna8yVvJg6TbNy1FtnpvP0cGVxMph/9AkpkHb2oPd5z54Rgg+kXCqq+7pstKFEap+sYJvS4jsnGUTEoWPH0qG/w=="
+}
+
 variable "infra_env" {
   type = string
   description = "production environment"
