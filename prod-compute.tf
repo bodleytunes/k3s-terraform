@@ -43,6 +43,7 @@ resource "aws_instance" "masters" {
 resource "aws_instance" "workers" {
   provider = aws
   ami           = var.ami_image
+  key_name = aws_key_pair.k3s_laptop_key.key_name
   instance_type = var.worker_instance_type
   for_each = var.worker_instances
   #subnet_id = [for az, subnet in aws_subnet.worker_subnets: subnet.id][each.value.subnet]

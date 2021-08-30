@@ -1,0 +1,29 @@
+Host jumphost
+  User ubuntu
+  Hostname 13.37.123.122    # replace this with the public ip or dns name for any master instance
+  IdentityFile ~/.ssh/id_ed25519
+  VisualHostKey yes
+  IdentitiesOnly yes
+  KexAlgorithms curve25519-sha256@libssh.org
+  Cipher aes256-ctr
+
+Host master*
+  User ubuntu
+  ProxyJump jumphost
+
+Host worker*
+  User ubuntu
+  ProxyJump jumphost
+
+Host master0
+  Hostname 10.100.0.10
+Host master1
+  Hostname 10.100.1.10
+Host master2
+  Hostname 10.100.2.10
+Host worker0
+  Hostname 10.100.10.10
+Host worker1
+  Hostname 10.100.11.10
+Host worker2
+  Hostname 10.100.12.10

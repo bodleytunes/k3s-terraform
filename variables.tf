@@ -105,21 +105,18 @@ variable "master_instances" {
       name = "master0"
       az = "eu-west-3a"
       ip_address = "10.100.0.10"
-      subnet = 0
     },
     master1 = {
       id = 1
       az = "eu-west-3b"
       name = "master1"
       ip_address = "10.100.1.10"
-      subnet = 1
     },
     master2 = {
       id = 2
       az = "eu-west-3c"
       name = "master2"
       ip_address = "10.100.2.10"    
-      subnet = 2
       },
   }
 }
@@ -131,21 +128,18 @@ variable "worker_instances" {
       name = "worker0"
       az = "eu-west-3a"
       ip_address = "10.100.10.10"
-      subnet = 0
     },
     worker1 = {
       id = 1
       name = "worker1"
       az = "eu-west-3b"
       ip_address = "10.100.11.10"
-      subnet = 1
     },
     worker2 = {
       id = 2
       az = "eu-west-3c"
       name = "worker2"
       ip_address = "10.100.12.10"    
-      subnet = 2
       },
   }
 }
