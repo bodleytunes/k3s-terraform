@@ -1,16 +1,4 @@
 
-#resource "random_shuffle" "master_subnet_shuffle" {
-#  input        = tolist(data.aws_subnet_ids.master_subnet_ids.ids)
-#  result_count = 1
-#  depends_on = [data.aws_subnet_ids.master_subnet_ids]
-#}
-#
-#resource "random_shuffle" "worker_subnet_shuffle" {
-#  input        = tolist(data.aws_subnet_ids.worker_subnet_ids.ids)
-#  result_count = 1
-#  depends_on = [data.aws_subnet_ids.worker_subnet_ids]
-#}
-
 resource "aws_instance" "masters" {
   provider = aws
   ami      = var.ami_image

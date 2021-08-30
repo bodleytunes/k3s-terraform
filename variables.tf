@@ -52,12 +52,6 @@ variable vpc_cidr {
 
 }
 
-variable azs {
-  type = list
-  default = ["eu-west-3a", "eu-west-3b", "eu-west-3c"]
-}
-
-
 variable "master_subnets" {
   default = {
     0 = {
